@@ -4,7 +4,7 @@
 
 This project demonstrates the deployment of a dynamic WordPress website on an AWS EC2 instance using Amazon Linux OS. The setup uses the LAMP stack (Linux, Apache, MySQL, PHP) to host and run the WordPress application. The goal of this project is to understand real-world cloud deployment, server configuration, and database integration.
 ## Architecture Diagram
-![alt text](<img/architecture diagram.jpeg>)
+![alt text](<img/architecture_diagram.jpeg>)
 ## Step-by-Step Deployment
 
 ### Steps:<br>
@@ -26,12 +26,12 @@ This project demonstrates the deployment of a dynamic WordPress website on an AW
 
 9.Launch instance and download key pair
 
-![alt text](<img/launching ec2 instance.png>)
+![alt text](<img/launching_ec2_instance.png>)
 ### 2.Connect to EC2 Instance
 
 ssh -i your-key.pem ec2-user@your-public-ip
 
-![alt text](<img/connect using ssh 2.png>)
+![alt text](<img/connect_using_ssh_2.png>)
 ### 3.Installation of LAMP
 sudo yum update<br>
 sudo yum install httpd mariadb105-server php -y<br>
@@ -40,19 +40,19 @@ sudo systemctl enable httpd mariadb php-fpm<br>
 * run the file:
 sudo bash lamp.sh
 
-![alt text](<img/installation of lamp2.png>)
+![alt text](<img/installation_of_lamp2.png>)
 ### 4.Taking url from GIT
 sudo wget < url >
 
-![alt text](<img/getting url from wordpress2.png>)
+![alt text](<img/getting_url_from_wordpress2.png>)
 ### 5.Decompress the file from git 
 sudo tar -xvzf latest.tar.gz
 
-![alt text](<img/detar wordpress application.png>)
+![alt text](<img/detar_wordpress_application.png>)
 ### 6.Installation of connector
 sudo yum install php8.5-mysqlnd.x86_64 -y
 
-![alt text](<img/install connector2.png>)
+![alt text](<img/install_connector2.png>)
 ### 7.Creating database
 sudo mysql -u root -p<br>
 create database wordpressdb;<br>
@@ -60,38 +60,38 @@ use wordpressdb;<br>
 show tables;<br>
 :it will does'nt show any table and we dont have to create table manually it will created by user apache that is created by system. 
 
-![alt text](<img/creating database.png>)
+![alt text](<img/creating_database.png>)
 ### 8. Hit the public ip
 public ip and the name of file wordpress
 
-![alt text](<img/then we will access this page.png>)After clicking on let's go
+![alt text](<img/then_we_will_access_this_page.png>)After clicking on let's go
 
-![alt text](<img/giving information to db.png>)
+![alt text](<img/giving_information_to_db.png>)
 You will see the this admin page where you have to fill information about database and submit but it can't submit before this we have to give permission to apache that is after clicking submit create a file named 
 ### wp config.php
 ### 9.Giving permission to apache user as owner
 sudo chown -R apache:apache wprdpress/
 
-![alt text](<img/giving permission to apache owner.png>)
+![alt text](<img/giving_permission_to_apache_owner.png>)
 now apache can create a file and it will submit and show the success!
 
 
-![alt text](<img/aaccess web 2.png>)
+![alt text](<img/aaccess_web_2.png>)
 after filling information it will look like this!!
 ### 10.Login to wordpress
 username : root<br>
 password : root
-![alt text](<img/aacces web 3.png>)
+![alt text](<img/aacces_web_3.png>)
 #### :After login you will access the wordpress!!
 ### 11.Access the WORDRESS!!
-![alt text](<img/main web.png>)
+![alt text](<img/main_web.png>)
 ### 12. Data is stored in database 
 different different data you can see:
 
-![alt text](<img/database 1.png>)
+![alt text](<img/database_1.png>)
 Data of users that i have fill in website 
 
-![alt text](<img/database 2.png>)
+![alt text](<img/database_2.png>)
 And i have succefully deployed a wordpress website !!
 ## Key Learnings
 
